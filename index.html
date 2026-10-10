@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CanterIA: inteligencia artificial para pymes de construcción y transporte.">
+<style>body{margin:0}</style>
+<title>CanterIA</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Concepto: una sola hoja, esquinas rectas y bloques como sillares. Verde seguridad sobre bosque, papel cálido, estados con texto. */
+:root {
+  --bosque: #0f211a;
+  --verde: #1f7a4d;
+  --verde-claro: #5fbf8a;
+  --cal: #efebdd;
+  --bg: #f4f2e9;
+  --surface: #ffffff;
+  --border: #d9d5c6;
+  --text: #0f211a;
+  --text-2: #55645c;
+  --accent-text: #1f7a4d;
+  --chip-bg: #e6f0e9;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Source Sans 3", system-ui, sans-serif;
+  --mono: "DM Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f211a; --surface: #16302a; --border: #24433a; --text: #efebdd;
+    --text-2: #a9bdb1; --accent-text: #5fbf8a; --chip-bg: #1d3a32; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f211a; --surface: #16302a; --border: #24433a; --text: #efebdd;
+  --text-2: #a9bdb1; --accent-text: #5fbf8a; --chip-bg: #1d3a32; color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin-inline: auto; padding-inline: 20px; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--verde-claro); outline-offset: 3px; }
+
+header.top { background: var(--bosque); color: var(--cal); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 22px; text-decoration: none; }
+.logo svg { flex-shrink: 0; fill: var(--cal); }
+.logo .acc { fill: var(--verde-claro); }
+.logo b { color: var(--verde-claro); font-weight: 700; }
+header.top nav { display: flex; gap: 20px; font-size: 15px; }
+header.top nav a { text-decoration: none; color: #a9bdb1; }
+header.top nav a:hover { color: var(--cal); }
+@media (max-width: 560px) { header.top nav a:not(.cta-nav) { display: none; } }
+.cta-nav { color: var(--cal) !important; font-weight: 600; }
+
+.hero { background: var(--bosque); color: var(--cal); padding-block: 56px 72px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--verde-claro); margin: 0 0 18px; }
+.hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(34px, 7vw, 64px); line-height: 1.05; margin: 0 0 22px; max-width: 16ch; text-wrap: balance; }
+.hero p.lead { font-size: 19px; max-width: 54ch; color: #c9d3cb; margin: 0 0 30px; }
+.btn { display: inline-block; background: var(--verde); color: #fff; font-weight: 700; font-size: 16px; padding: 13px 22px; text-decoration: none; border: 1px solid var(--verde); }
+.btn:hover { background: #196640; border-color: #196640; }
+.btn.ghost { background: transparent; color: var(--cal); border-color: #3b5a4e; margin-left: 10px; }
+.btn.ghost:hover { border-color: var(--cal); background: transparent; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero .btn.ghost { margin-left: 0; }
+
+section { padding-block: 64px; }
+section + section { border-top: 1px solid var(--border); }
+h2 { font-family: var(--serif); font-size: clamp(26px, 4.5vw, 38px); line-height: 1.12; margin: 0 0 14px; text-wrap: balance; }
+.sub { color: var(--text-2); max-width: 60ch; margin: 0 0 36px; }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+.cols h3 { font-family: var(--serif); font-size: 20px; margin: 0 0 6px; }
+.cols p { margin: 0; color: var(--text-2); }
+.cols > div { min-width: 0; border-top: 3px solid var(--verde); padding-top: 14px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); padding: 22px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.card.main { grid-column: 1 / -1; background: var(--bosque); color: var(--cal); border-color: var(--bosque); }
+.card h3 { font-family: var(--serif); font-size: 24px; margin: 0; }
+.card h3 b { color: var(--accent-text); font-weight: 700; }
+.card.main h3 b { color: var(--verde-claro); }
+.card p { margin: 0; color: var(--text-2); }
+.card.main p { color: #c9d3cb; max-width: 62ch; }
+.chip { align-self: flex-start; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; padding: 3px 9px; background: var(--chip-bg); color: var(--accent-text); }
+.card.main .chip { background: #1d3a32; color: var(--verde-claro); }
+.card .for { font-size: 14px; color: var(--text-2); margin-top: auto; padding-top: 6px; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0; border: 1px solid var(--border); background: var(--surface); }
+.steps li { padding: 18px; border-right: 1px solid var(--border); min-width: 0; }
+.steps li:last-child { border-right: 0; }
+.steps .n { font-family: var(--mono); font-size: 12px; color: var(--accent-text); letter-spacing: .08em; text-transform: uppercase; }
+.steps strong { display: block; font-family: var(--serif); font-size: 19px; margin: 4px 0; }
+.steps span.d { color: var(--text-2); font-size: 15px; }
+@media (max-width: 700px) { .steps li { border-right: 0; border-bottom: 1px solid var(--border); } .steps li:last-child { border-bottom: 0; } }
+
+.about { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px; align-items: start; }
+.about p { margin: 0 0 14px; max-width: 58ch; }
+.facts { border-left: 3px solid var(--verde); padding-left: 18px; font-family: var(--mono); font-size: 14px; color: var(--text-2); display: grid; gap: 8px; }
+.facts b { color: var(--text); font-weight: 500; }
+
+.contact { background: var(--bosque); color: var(--cal); }
+.contact h2, .contact .sub { color: var(--cal); }
+.contact .sub { color: #c9d3cb; }
+.mail { font-family: var(--mono); font-size: clamp(18px, 4vw, 26px); background: #16302a; border: 1px solid #24433a; padding: 14px 18px; display: inline-block; max-width: 100%; overflow-wrap: anywhere; text-decoration: none; color: var(--cal); }
+.mail:hover { border-color: var(--verde-claro); }
+.contact .note { font-size: 14px; color: #a9bdb1; margin: 14px 0 0; }
+footer a { color: inherit; }
+footer { background: var(--bosque); color: #a9bdb1; font-size: 14px; padding-block: 24px; border-top: 1px solid #24433a; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="CanterIA, inicio">
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="8" y="8" width="16" height="16"/><rect x="26" y="8" width="16" height="16"/>
+        <rect x="8" y="26" width="16" height="16"/><rect x="8" y="44" width="16" height="12"/>
+        <rect x="26" y="44" width="16" height="12"/><rect x="44" y="8" width="12" height="16"/>
+        <rect class="acc" x="44" y="44" width="12" height="12"/>
+      </svg>
+      Canter<b>IA</b>
+    </a>
+    <nav aria-label="Principal">
+      <a href="#productos">Productos</a>
+      <a href="#metodo">Método</a>
+      <a href="#quien">Quién</a>
+      <a class="cta-nav" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">IA para pymes de construcción y transporte</p>
+      <h1>IA que decide, no solo avisa.</h1>
+      <p class="lead">CanterIA construye herramientas de inteligencia artificial para empresas que trabajan en obra y en carretera. Detectan lo que pasa, proponen qué hacer y dejan constancia de lo que se hizo.</p>
+      <div class="actions">
+        <a class="btn" href="#productos">Ver productos</a>
+        <a class="btn ghost" href="mailto:carlos@canteria.es?subject=Consulta%20desde%20canteria.es">Hablar con nosotros</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="que">
+    <div class="wrap">
+      <h2>Pensado desde la obra y el camión</h2>
+      <p class="sub">La mayoría de las pymes ya tiene datos: partes, albaranes, ubicaciones, tacógrafos. Lo que falta es alguien que los lea a tiempo y diga qué hacer.</p>
+      <div class="cols">
+        <div><h3>Herramientas, no informes</h3><p>Cada producto resuelve una tarea concreta del día a día y se usa desde el móvil o desde el chat que el equipo ya tiene.</p></div>
+        <div><h3>Probado en trabajo real</h3><p>Se desarrollan junto a quien los usa: un jefe de obra con sus encargados, una empresa de transporte con su flota.</p></div>
+        <div><h3>Datos bajo control</h3><p>Los datos de personas, matrículas y ubicaciones se tratan con las reglas del RGPD desde el diseño, no como añadido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="wrap">
+      <h2>Productos</h2>
+      <p class="sub">Cada uno tiene su propio estado. Aquí se dice en qué punto está.</p>
+      <div class="cards">
+        <article class="card main">
+          <span class="chip">En piloto</span>
+          <h3>Flota<b>IA</b></h3>
+          <p>Control de flota para transporte por carretera. No se limita a mostrar dónde está cada camión: evalúa cada evento contra reglas propias, avisa lo que importa, registra la decisión y ajusta sus umbrales con el uso.</p>
+          <span class="for">Para empresas de transporte con flota propia. Piloto en marcha con una flota de unas 200 tractoras.</span>
+        </article>
+        <article class="card">
+          <span class="chip">En uso en obra</span>
+          <h3>Obr<b>IA</b></h3>
+          <p>Partes de obra por WhatsApp. El encargado cuenta lo que ha pasado y la herramienta lo ordena en un parte.</p>
+          <span class="for">Para constructoras y encargados de obra.</span>
+        </article>
+        <article class="card">
+          <span class="chip">En desarrollo</span>
+          <h3>Albarán<b>IA</b></h3>
+          <p>Captura de albaranes, gastos y facturas. Extrae los datos, los valida y los deja listos para la gestoría.</p>
+          <span class="for">Para pymes y gestorías.</span>
+        </article>
+        <article class="card">
+          <span class="chip">En desarrollo</span>
+          <h3>Ready<b>IA</b></h3>
+          <p>Autodiagnóstico de cumplimiento del reglamento europeo de IA y de la normativa española, pensado para pymes.</p>
+          <span class="for">Para cualquier pyme que ya usa o quiere usar IA.</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo">
+    <div class="wrap">
+      <h2>Cómo piensa cada producto</h2>
+      <p class="sub">Todos siguen el mismo ciclo. Es lo que los diferencia de un panel que solo enseña datos.</p>
+      <ol class="steps">
+        <li><span class="n">Paso 1</span><strong>Detectar</strong><span class="d">Un evento ocurre: un retraso, un albarán, un parte.</span></li>
+        <li><span class="n">Paso 2</span><strong>Decidir</strong><span class="d">Se compara con las reglas de la empresa.</span></li>
+        <li><span class="n">Paso 3</span><strong>Actuar</strong><span class="d">Se avisa a la persona adecuada o se ejecuta la acción.</span></li>
+        <li><span class="n">Paso 4</span><strong>Registrar</strong><span class="d">Queda guardado qué pasó y qué se decidió.</span></li>
+        <li><span class="n">Paso 5</span><strong>Mejorar</strong><span class="d">Los umbrales se ajustan con lo que se aprende.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="quien">
+    <div class="wrap about">
+      <div>
+        <h2>Quién está detrás</h2>
+        <p>CanterIA la dirige Carlos Araya García, ingeniero civil y jefe de obra con más de 20 años de experiencia. Fundó empresas de protecciones colectivas en Perú y Chile, y una empresa de sistemas de gestión en Perú. Los productos nacen de problemas que ha vivido en obra.</p>
+        <p>Además de desarrollar producto propio, ayuda a pymes españolas de construcción y transporte a incorporar IA en su trabajo diario.</p>
+      </div>
+      <div class="facts" aria-label="Datos">
+        <span><b>IA:</b> formado en IA para pymes en la EOI Escuela de Organización Industrial, y aplicándola ya: un bot de partes de obra en uso real y un sistema de control de flota en piloto</span>
+        <span><b>Trayectoria:</b> más de 20 años en obra y gestión</span>
+        <span><b>Fundador:</b> protecciones colectivas (Perú y Chile) y sistemas de gestión (Perú)</span>
+        <span>Ingeniero civil</span>
+        <span>Máster en Sistemas de Gestión</span>
+        <span>Máster en Prevención de Riesgos Laborales</span>
+        <span>Auditor jefe</span>
+        <span><b>Base:</b> Lepe, Huelva, Andalucía</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap">
+      <h2>Hablemos de tu caso</h2>
+      <p class="sub">Cuéntanos qué tarea se te hace pesada en la obra o en la flota. Respondemos personalmente.</p>
+      <a class="mail" id="mail" href="mailto:carlos@canteria.es?subject=Consulta%20desde%20canteria.es">carlos@canteria.es</a>
+      <p class="note">Si tu aplicación de correo no se abre, copia la dirección y escríbenos desde donde prefieras.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>CanterIA · Lepe, Huelva</span>
+    <span>canteria.es</span>
+  </div>
+</footer>
+
+</html>
