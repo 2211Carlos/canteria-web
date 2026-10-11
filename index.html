@@ -3,9 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="CanterIA: inteligencia artificial para pymes de construcción y transporte.">
+
 <style>body{margin:0}</style>
-<title>CanterIA</title>
+<meta name="description" content="CanterIA: inteligencia artificial aplicada a pymes. Menos papeleo en obra y más control en la flota, paso a paso y probado con quien lo usa.">
+<meta name="theme-color" content="#0f211a">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%230f211a%22/%3E%3Cg fill=%22%23efebdd%22%3E%3Crect x=%228%22 y=%228%22 width=%2216%22 height=%2216%22/%3E%3Crect x=%2226%22 y=%228%22 width=%2216%22 height=%2216%22/%3E%3Crect x=%228%22 y=%2226%22 width=%2216%22 height=%2216%22/%3E%3Crect x=%228%22 y=%2244%22 width=%2216%22 height=%2212%22/%3E%3Crect x=%2226%22 y=%2244%22 width=%2216%22 height=%2212%22/%3E%3Crect x=%2244%22 y=%228%22 width=%2212%22 height=%2216%22/%3E%3Crect x=%2244%22 y=%2244%22 width=%2212%22 height=%2212%22 fill=%22%235fbf8a%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="canonical" href="https://canteria.es/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="CanterIA">
+<meta property="og:title" content="CanterIA · IA aplicada a pymes">
+<meta property="og:description" content="CanterIA: inteligencia artificial aplicada a pymes. Menos papeleo en obra y más control en la flota, paso a paso y probado con quien lo usa.">
+<meta property="og:url" content="https://canteria.es/">
+<meta property="og:image" content="https://canteria.es/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>CanterIA · IA aplicada a pymes</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <script>document.documentElement.classList.add('js');
 (function(){ if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { var a=document.querySelectorAll('animateMotion'); for (var i=0;i<a.length;i++) a[i].parentNode.removeChild(a[i]); } })();
@@ -234,12 +248,12 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
   <div class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow">IA para pymes de construcción y transporte</p>
-        <h1><span>Avisa a tiempo.</span><span>Decide con tus reglas.</span><span>Deja constancia.</span></h1>
-        <p class="lead">CanterIA desarrolla herramientas de inteligencia artificial para empresas que trabajan en obra y en carretera. La más avanzada, FlotaIA, controla flotas de transporte y ya está en piloto.</p>
+        <p class="eyebrow">IA aplicada a pymes</p>
+        <h1><span>Menos papeleo en obra.</span><span>Más control en la flota.</span></h1>
+        <p class="lead">IA aplicada a tu forma de trabajar, paso a paso, sin cambiarlo todo de golpe. CanterIA desarrolla herramientas para empresas que trabajan en obra y en carretera. La más avanzada, FlotaIA, controla flotas de transporte y ya está en piloto.</p>
         <div class="actions">
-          <a class="btn" href="#transporte">Ver lo que hacemos</a>
-          <a class="btn ghost" href="mailto:carlos@canteria.es?subject=Solicitud%20de%20demo">Solicitar una demo</a>
+          <a class="btn" href="mailto:carlos@canteria.es?subject=Diagn%C3%B3stico%20gratuito">Pedir mi diagnóstico</a>
+          <a class="btn ghost" href="#transporte">Ver lo que hacemos</a>
         </div>
         <a class="flota-link" href="#transporte"><i></i>FlotaIA · transporte · en piloto con una flota real</a>
       </div>
@@ -251,11 +265,19 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 
   <section id="que">
     <div class="wrap split">
-      <h2 class="reveal">Cómo trabajamos</h2>
-      <div class="lines">
-        <div class="reveal" style="--d:1"><strong>Paso a paso, no todo a la vez</strong><p>Analizamos cómo trabajas, detectamos tus necesidades y proponemos una solución cada vez, hasta formar un sistema completo. Cada una resuelve algo concreto del día a día.</p></div>
-        <div class="reveal" style="--d:2"><strong>Con quien lo usa</strong><p>Cada solución se prueba con las personas y los equipos que la van a usar, y se ajusta antes de seguir.</p></div>
-        <div class="reveal" style="--d:3"><strong>Datos de personas, con cuidado</strong><p>Conductores, matrículas y ubicaciones se tratan según el RGPD desde el diseño.</p></div>
+      <div>
+        <h2 class="reveal">Cómo empezamos</h2>
+        <p class="sub reveal" style="--d:1">Diagnóstico gratuito de 30 minutos. Nos cuentas cómo trabajas hoy y te decimos, con sinceridad, dónde la IA puede ayudarte y dónde no merece la pena.</p>
+        <p class="reveal" style="--d:2;margin:18px 0 0"><a class="btn" href="mailto:carlos@canteria.es?subject=Diagn%C3%B3stico%20gratuito">Pedir mi diagnóstico</a></p>
+      </div>
+      <div>
+        <ol class="steps reveal" id="empezar">
+          <li><strong>Escuchamos cómo trabajas.</strong><span>Una conversación de 30 minutos, sin compromiso, para entender tu obra o tu flota.</span></li>
+          <li><strong>Detectamos dónde se pierde el tiempo.</strong><span>Partes, albaranes, avisos, seguimiento: elegimos lo que más pesa.</span></li>
+          <li><strong>Probamos una solución, una a una.</strong><span>Empezamos por una sola herramienta, con las personas que la van a usar, y la ajustamos antes de seguir.</span></li>
+          <li><strong>Implantamos, enseñamos y acompañamos.</strong><span>Guiamos la puesta en marcha y revisamos los resultados contigo. Así vamos construyendo un sistema completo, sin cambiarlo todo a la vez.</span></li>
+        </ol>
+        <p class="reveal" style="--d:3;margin:18px 0 0;font-size:14px;color:var(--text-2)">Datos de personas, con cuidado: conductores, matrículas y ubicaciones se tratan según el RGPD desde el diseño.</p>
       </div>
     </div>
   </section>
@@ -263,7 +285,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
   <section id="transporte">
     <div class="wrap">
       <h2 class="reveal">Transporte</h2>
-      <p class="sub reveal" style="--d:1">Para empresas con flota propia. Ya en piloto con una flota real.</p>
+      <p class="sub reveal" style="--d:1">Para empresas con flota propia. Avisa a tiempo, decide con tus reglas y deja constancia. Ya en piloto con una flota real.</p>
       <article class="feature reveal" style="--d:2">
         <div class="txt">
           <span class="chip">En piloto</span>
@@ -382,7 +404,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
       <p class="sub reveal" style="--d:1">Cuéntanos qué tarea se te hace pesada en tu día a día. Respondemos personalmente. Si prefieres verlo funcionando, puedes solicitarnos una demo de FlotaIA u ObrIA, o de algo en concreto según lo que necesites.</p>
       <div class="reveal" style="--d:2">
         <a class="mail" id="mail" href="mailto:carlos@canteria.es?subject=Consulta%20desde%20canteria.es">carlos@canteria.es</a>
-        <p style="margin:18px 0 0"><a class="btn" href="mailto:carlos@canteria.es?subject=Solicitud%20de%20demo">Solicitar una demo</a></p>
+        <p style="margin:18px 0 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="mailto:carlos@canteria.es?subject=Diagn%C3%B3stico%20gratuito">Pedir mi diagnóstico</a><a class="btn ghost" href="mailto:carlos@canteria.es?subject=Solicitud%20de%20demo">Solicitar una demo</a></p>
         <p class="note">Si tu aplicación de correo no se abre, copia la dirección y escríbenos desde donde prefieras.</p>
       </div>
     </div>
