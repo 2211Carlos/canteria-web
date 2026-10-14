@@ -211,6 +211,7 @@ html:not(.js) .steps::after { transform: scaleY(1); }
 .contact .note { font-size: 14px; color: #a9bdb1; margin: 14px 0 0; }
 footer { background: var(--bosque); color: #a9bdb1; font-size: 14px; padding-block: 24px; border-top: 1px solid #24433a; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+footer .wa-legal { flex: 0 0 100%; font-size: 12px; line-height: 1.4; color: #8ea398; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -404,8 +405,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
       <p class="sub reveal" style="--d:1">Cuéntanos qué tarea se te hace pesada en tu día a día. Respondemos personalmente. Si prefieres verlo funcionando, puedes solicitarnos una demo de FlotaIA u ObrIA, o de algo en concreto según lo que necesites.</p>
       <div class="reveal" style="--d:2">
         <a class="mail" id="mail" href="mailto:carlos@canteria.es?subject=Consulta%20desde%20canteria.es">carlos@canteria.es</a>
-        <p style="margin:18px 0 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="mailto:carlos@canteria.es?subject=Diagn%C3%B3stico%20gratuito">Pedir mi diagnóstico</a><a class="btn ghost" href="mailto:carlos@canteria.es?subject=Solicitud%20de%20demo">Solicitar una demo</a></p>
-        <p class="note">Si tu aplicación de correo no se abre, copia la dirección y escríbenos desde donde prefieras.</p>
+        <p style="margin:18px 0 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="mailto:carlos@canteria.es?subject=Diagn%C3%B3stico%20gratuito">Pedir mi diagnóstico</a><a class="btn ghost" href="mailto:carlos@canteria.es?subject=Solicitud%20de%20demo">Solicitar una demo</a><a class="btn ghost" href="https://wa.me/@canterIA_es" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></p>
+        <p class="note">Respondemos personalmente, por WhatsApp o por correo: carlos@canteria.es. Si el correo no se abre, copia la dirección o escríbenos por WhatsApp.</p>
       </div>
     </div>
   </section>
@@ -416,6 +417,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
     <span>CanterIA · Lepe, Huelva</span>
     <span>canteria.es</span>
     <span>Desarrollado con apoyo de IA, en especial Claude.</span>
+    <small class="wa-legal">Si nos escribes por WhatsApp, tratamos tu número y tu mensaje solo para responder a tu consulta.</small>
   </div>
 </footer>
 
