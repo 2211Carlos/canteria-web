@@ -42,16 +42,21 @@
   --serif: "Source Serif 4", Georgia, serif;
   --sans: "Source Sans 3", system-ui, sans-serif;
   --mono: "DM Mono", ui-monospace, monospace;
+  --obria: #2f5fb3; --obria-bg: #e3eaf7;
+  --validaia: #6a4cc4; --validaia-bg: #ece8f8;
+  --readyia: #b0338a; --readyia-bg: #f6e4ef;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0f211a; --surface: #16302a; --border: #24433a; --text: #efebdd;
     --text-2: #a9bdb1; --accent-text: #5fbf8a; --chip-bg: #1d3a32; --row-hover: #143027; color-scheme: dark;
+    --obria: #8fb1ff; --obria-bg: #1b2c4d; --validaia: #b7a6ff; --validaia-bg: #2a2350; --readyia: #f08ccb; --readyia-bg: #45203a;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f211a; --surface: #16302a; --border: #24433a; --text: #efebdd;
   --text-2: #a9bdb1; --accent-text: #5fbf8a; --chip-bg: #1d3a32; --row-hover: #143027; color-scheme: dark;
+    --obria: #8fb1ff; --obria-bg: #1b2c4d; --validaia: #b7a6ff; --validaia-bg: #2a2350; --readyia: #f08ccb; --readyia-bg: #45203a;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -184,6 +189,9 @@ h2 { font-family: var(--serif); font-size: clamp(26px, 4.5vw, 38px); line-height
 .prow h3 b { color: var(--accent-text); font-weight: 700; }
 .prow p { margin: 0; color: var(--text-2); }
 .prow .chip { align-self: center; }
+.prow[data-p="obria"] { --accent-text: var(--obria); --chip-bg: var(--obria-bg); }
+.prow[data-p="validaia"] { --accent-text: var(--validaia); --chip-bg: var(--validaia-bg); }
+.prow[data-p="readyia"] { --accent-text: var(--readyia); --chip-bg: var(--readyia-bg); }
 @media (max-width: 640px) { .prow { grid-template-columns: minmax(0, 1fr); gap: 6px; } .prow .chip { order: -1; } }
 
 /* Método: línea vertical que se dibuja */
@@ -420,17 +428,17 @@ footer .wa-legal { flex: 0 0 100%; font-size: 12px; line-height: 1.4; color: #8e
 <g><rect x="32" y="158" width="4" height="92" fill="#3f6a59"/><rect x="108" y="158" width="4" height="92" fill="#3f6a59"/>
 <rect x="20" y="118" width="104" height="58" fill="#16302a" stroke="#5fbf8a" stroke-width="2"/>
 <g transform="translate(28,126) scale(.42)" fill="#efebdd"><rect x="8" y="8" width="16" height="16"/><rect x="26" y="8" width="16" height="16"/><rect x="8" y="26" width="16" height="16"/><rect x="8" y="44" width="16" height="12"/><rect x="26" y="44" width="16" height="12"/><rect x="44" y="8" width="12" height="16"/><rect x="44" y="44" width="12" height="12" fill="#5fbf8a"/></g>
-<text x="56" y="144" style="font:700 17px 'Source Serif 4',Georgia,serif;fill:#efebdd">Obr<tspan fill="#5fbf8a">IA</tspan></text>
+<text x="56" y="144" style="font:700 17px 'Source Serif 4',Georgia,serif;fill:#efebdd">Obr<tspan fill="#8fb1ff">IA</tspan></text>
 <text class="t" x="28" y="166" style="font-size:9px">Avance de obra</text></g>
 <text class="t" x="8" y="22">Obra · planta a planta</text><text class="t" x="8" y="282">Avance registrado en cada fase</text></svg></div></div>
       <div class="rows">
-        <article class="prow reveal" style="--d:1">
+        <article class="prow reveal" data-p="obria" style="--d:1">
           <h3>Obr<b>IA</b></h3>
           <p>Tu asistente de obra en WhatsApp, Telegram o app: avances, partidas, costes y certificaciones. Algunas funciones ya se están probando en una obra real, en tiempo real.</p>
           <span class="chip">En pruebas en obra</span>
         </article>
-        <article class="prow reveal" style="--d:2">
-          <h3>Albarán<b>IA</b></h3>
+        <article class="prow reveal" data-p="validaia" style="--d:2">
+          <h3>Valida<b>IA</b></h3>
           <p>Captura de albaranes, gastos y facturas. Extrae los datos, los valida y los deja listos para la gestoría.</p>
           <span class="chip">En desarrollo</span>
         </article>
@@ -448,7 +456,7 @@ footer .wa-legal { flex: 0 0 100%; font-size: 12px; line-height: 1.4; color: #8e
           <p>Estudiamos tu forma de trabajar y proponemos soluciones una a una, hasta formar un sistema completo: un bot de Telegram o WhatsApp, una app u otra herramienta, según lo que necesites. En cada paso te acompañamos: guiamos, enseñamos y controlamos que se implante bien antes de dar el siguiente.</p>
           <span class="chip">Bajo encargo</span>
         </article>
-        <article class="prow reveal" style="--d:2">
+        <article class="prow reveal" data-p="readyia" style="--d:2">
           <h3>Ready<b>IA</b></h3>
           <p>Autodiagnóstico de cumplimiento del reglamento europeo de IA y de la normativa española. Para cualquier pyme que ya usa o quiere usar IA.</p>
           <span class="chip">En desarrollo</span>
